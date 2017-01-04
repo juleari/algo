@@ -10,8 +10,8 @@ def getErrorString(input, output, result):
 def getErrorsInfo(results):
     return "\n".join(["%s failed" % len(results)] + results)
 
-def getTestsInfo(lenTests, results):
-    return "run %s tests:\n" % lenTests + \
+def getTestsInfo(len_tests, results):
+    return "run %s tests:\n" % len_tests + \
         ("tests OK" if len(results) == 0 else getErrorsInfo(results))
 
 def singleTest(func, input, output):
@@ -19,16 +19,16 @@ def singleTest(func, input, output):
     return output == result or getErrorString(input, output, result)
 
 def runTests(func, inputs, outputs):
-    lenTests = len(inputs)
+    len_tests = len(inputs)
 
-    if lenTests != len(outputs):
+    if len_tests != len(outputs):
         return "Can't run tests because the input data does not match the output"
 
     results = filter(lambda x: x != True,
                     [ singleTest(func, input, output)
                         for input, output in zip(inputs, outputs) ])
 
-    return getTestsInfo(lenTests, results)
+    return getTestsInfo(len_tests, results)
 
 def generateTest(number=1):
     return ('from test import runTests\n' +\
