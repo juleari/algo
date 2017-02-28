@@ -37,7 +37,7 @@ def generateTest(sort_name):
             'print runTests(main, dataIn, dataOut)') % (sort_name)
 
 def main():
-    name = 'insertion' if len(sys.argv) < 2 else sys.argv[1]
+    name = 'Insertion' if len(sys.argv) < 2 else sys.argv[1]
     testInner = generateTest(name)
     testFile = open(TEST_PATH, 'w')
 

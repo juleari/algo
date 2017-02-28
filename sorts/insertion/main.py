@@ -2,7 +2,7 @@
 # import compare
 
 '''
-Inseption sort algorithm.
+Insertion sort algorithm.
 @param xs -- list of elements
 @param comare -- function that defines the sort order
 
