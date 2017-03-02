@@ -2,3 +2,9 @@
 *.DS_Store
 
 *.pyc
+
+*.hi
+
+*.o
+
+sorts/Test

@@ -1,4 +1,4 @@
-;; guile -l Insertion/main.scm test.scm <data.scm
+;; guile -l Insertion/main.scm test.scm <Data/data.scm
 
 ;; guile -l main.scm test.scm <data 1>out 2>err
 ;; где data -- файл с данными

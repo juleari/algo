@@ -1,4 +1,4 @@
-module Data where
+module Data.Data where
 
 compare_high_abs :: Integer -> Integer -> Bool
 compare_high_abs x y = abs(x) > abs(y)
