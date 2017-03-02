@@ -2,7 +2,7 @@
  * Inseption sort algorithm.
  * @param {Array} xs -- list of elements
  * @param {Function} comare -- function that defines the sort order
-
+ *
  * @returns {Array} -- the sorted list
  */
 var insertionSort = function(xs, compare) {

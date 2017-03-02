@@ -1,4 +1,4 @@
--- ghci test.hs
+-- ghci Test.hs
 -- print (runTests Data.data_in_xs Data.data_in_cmp Data.data_out [])
 
 import Insertion.Insertion as Insertion
