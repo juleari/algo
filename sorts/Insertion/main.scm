@@ -2,7 +2,7 @@
 (define (insertion-sort xs cmp?)
   (define (insert xs ys x)
     (cond ((null? ys)        (cons x xs))
-          ((cmp? (lst ys) x) (insert (cons (lst ys) xs) (heads ys) x))
+          ((cmp? x (lst ys)) (insert (cons (lst ys) xs) (heads ys) x))
           (else              (append ys (list x) xs))))
 
   (define (helper xs ys)

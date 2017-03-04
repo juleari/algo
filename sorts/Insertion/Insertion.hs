@@ -9,7 +9,7 @@ helper xs (y : ys) cmp = helper (insert [] xs y cmp) ys cmp
 
 insert :: [a] -> [a] -> a -> (a -> a -> Bool) -> [a]
 insert xs [] x cmp = (x : xs)
-insert xs ys x cmp | cmp y x   = insert (y : xs) (heads ys) x cmp
+insert xs ys x cmp | cmp x y   = insert (y : xs) (heads ys) x cmp
                    | otherwise = ys ++ (x : xs)
                    where y = last ys
 

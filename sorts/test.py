@@ -1,3 +1,6 @@
+# python test.py [SortName]
+# python test.py Insertion
+
 from subprocess import call
 import sys, os
 
@@ -31,10 +34,14 @@ def runTests(func, inputs, outputs):
     return getTestsInfo(len_tests, results)
 
 def generateTest(sort_name):
-    return ('from test import runTests\n' +\
-            'from %n.main import main\n' +\
-            'from data import dataIn, dataOut\n\n' +\
-            'print runTests(main, dataIn, dataOut)') % (sort_name)
+    return ('import timeit\n' +\
+            'from test import runTests\n' +\
+            'from %s.main import main\n' +\
+            'from Data.data import dataIn, dataOut\n\n' +\
+            'start = timeit.default_timer()\n' +\
+            'res = runTests(main, dataIn, dataOut)\n' +\
+            'print "runTests: ", timeit.default_timer() - start\n' +\
+            'print res') % (sort_name)
 
 def main():
     name = 'Insertion' if len(sys.argv) < 2 else sys.argv[1]

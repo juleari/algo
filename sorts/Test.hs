@@ -5,6 +5,8 @@
 
 import Insertion.Insertion as Insertion
 import Data.Data as Data
+import Text.Printf
+import System.CPUTime
 
 getErrorString :: [Integer] -> [Integer] -> [Integer] -> String
 getErrorString x_in x_out x_res = "Error:\n  data in:  " ++ (show x_in) ++ "\n  expected: " ++ (show x_out) ++ "\n  recieved: " ++ (show x_res)
@@ -31,4 +33,10 @@ runTests (x_in : xs_in) (x_cmp : xs_cmp) (x_out : xs_out) res =
     runTests xs_in xs_cmp xs_out (res ++ [singleTest x_in x_cmp x_out])
 
 main :: IO ()
-main = putStr (runTests Data.data_in_xs Data.data_in_cmp Data.data_out [])
+main = do
+    start <- getCPUTime
+    let res = runTests Data.data_in_xs Data.data_in_cmp Data.data_out []
+    end <- getCPUTime
+    let diff = (fromIntegral (end - start)) / (10^12)
+    printf "runTests: %0.7f sec\n" (diff :: Double)
+    putStr res

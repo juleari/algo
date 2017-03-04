@@ -1,4 +1,7 @@
-var data = require('./data');
+// node test.js [SortName]
+// node test.js Insertion
+
+var data = require('./Data/data');
 
 var getErrorString = (input, output, result) =>
     `Error:\n input: ${input}\n expected: ${output}\n recieved: ${result}`;

@@ -15,7 +15,7 @@ def insertion_sort(xs, compare):
         key = sorted_xs[j]
 
         i = j - 1
-        while i > -1 and compare(sorted_xs[i], key):
+        while i > -1 and compare(key, sorted_xs[i]):
             sorted_xs[i + 1] = sorted_xs[i]
             i -= 1
 

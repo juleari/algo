@@ -13,7 +13,7 @@ var insertionSort = function(xs, compare) {
         key = xsSorted[j];
 
         i = j - 1;
-        while (i > -1 && compare(xsSorted[i], key)) {
+        while (i > -1 && compare(key, xsSorted[i])) {
             xsSorted[i + 1] = xsSorted[i];
             i -= 1;
         }
