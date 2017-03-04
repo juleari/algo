@@ -8,41 +8,41 @@ Merge sort algorithm.
 def merge_sort(xs, compare):
     sorted_xs = xs[:]
 
-    def merge_sort_helper(p, r):
+    def helper(p, r):
         if p < r - 1:
             q = int(round((p + r) / 2.0))
-            merge_sort_helper(p, q)
-            merge_sort_helper(q, r)
+            helper(p, q)
+            helper(q, r)
             merge(p, q, r)
 
     def merge(p, q, r):
-        L = sorted_xs[p : q]
-        R = sorted_xs[q : r]
-
         if p == q or q == r:
             return
+
+        ls = sorted_xs[p : q]
+        rs = sorted_xs[q : r]
 
         i = j = 0
 
         for k in range(p, r):
             # compare in reverse,
             # to save the order of equal elements
-            if compare(R[j], L[i]):
-                sorted_xs[k] = R[j]
+            if compare(rs[j], ls[i]):
+                sorted_xs[k] = rs[j]
                 j += 1
 
                 if j == r - q:
-                    sorted_xs[k + 1 : r] = L[i:]
+                    sorted_xs[k + 1 : r] = ls[i:]
                     break
             else:
-                sorted_xs[k] = L[i]
+                sorted_xs[k] = ls[i]
                 i += 1
 
                 if i == q - p:
-                    sorted_xs[k + 1 : r] = R[j:]
+                    sorted_xs[k + 1 : r] = rs[j:]
                     break
 
-    merge_sort_helper(0, len(xs))
+    helper(0, len(xs))
 
     return sorted_xs
 
