@@ -3,7 +3,7 @@
 
 -- ghci Test.hs
 
-import Insertion.Insertion as Insertion
+import Merge.Sort as Sort
 import Data.Data as Data
 import Text.Printf
 import System.CPUTime
@@ -12,8 +12,8 @@ getErrorString :: [Integer] -> [Integer] -> [Integer] -> String
 getErrorString x_in x_out x_res = "Error:\n  data in:  " ++ (show x_in) ++ "\n  expected: " ++ (show x_out) ++ "\n  recieved: " ++ (show x_res)
 
 singleTest :: [Integer] -> (Integer -> Integer -> Bool) -> [Integer] -> String
-singleTest x_in x_cmp x_out | (Insertion.insertion_sort x_in x_cmp) == x_out = ""
-                            | otherwise = getErrorString x_in x_out (Insertion.insertion_sort x_in x_cmp)
+singleTest x_in x_cmp x_out | (Sort.sort x_in x_cmp) == x_out = ""
+                            | otherwise = getErrorString x_in x_out (Sort.sort x_in x_cmp)
 
 reduce :: (a -> a -> a) -> a -> [a] -> a
 reduce op acc [] = acc

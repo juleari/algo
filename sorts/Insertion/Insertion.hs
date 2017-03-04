@@ -1,4 +1,4 @@
-module Insertion.Insertion where
+module Insertion.Sort where
 -- Insertion sort algorithm.
 insertion_sort :: [a] -> (a -> a -> Bool) -> [a]
 insertion_sort xs cmp = helper [] xs cmp
@@ -16,3 +16,5 @@ insert xs ys x cmp | cmp x y   = insert (y : xs) (heads ys) x cmp
 heads :: [a] -> [a]
 heads (x : []) = []
 heads (x : xs) = x : heads xs
+
+sort = insertion_sort
