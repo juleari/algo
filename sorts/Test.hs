@@ -3,7 +3,7 @@
 
 -- ghci Test.hs
 
-import Merge.Sort as Sort
+import Bubble.Sort as Sort
 import Data.Data as Data
 import Text.Printf
 import System.CPUTime
