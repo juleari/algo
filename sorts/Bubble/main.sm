@@ -1,0 +1,10 @@
+; Bubble sort
+bubble-sort xs cmp? <-
+    helper ss bs []  <- ss
+    helper ss [] [x] <- [x : ss]
+    helper ss bs [x] <- helper [x : ss] [] bs
+    helper ss bs [x y : xs] <-
+        if | cmp? y x -> helper ss (bs ++ [y]) [x : xs]
+           |          -> helper ss (bs ++ [x]) [y : xs]
+
+    helper [] [] xs
