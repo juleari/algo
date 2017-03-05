@@ -1,6 +1,3 @@
-# import errors
-# import compare
-
 '''
 Selection sort algorithm.
 @param xs -- list of elements
