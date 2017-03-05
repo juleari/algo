@@ -1,13 +1,4 @@
-; [x : []] !!
 ; mlscheme -l guile main.sm
-
-last [x : xs] <-
-    if | null? xs -> x
-       |          -> last xs
-
-heads [x : xs] <-
-    if | null? xs -> []
-       |          -> [x : heads xs]
 
 ; Insertion sort algorithm
 insertion-sort xs cmp? <-
@@ -16,7 +7,7 @@ insertion-sort xs cmp? <-
         y <- last ys
         hy <- heads ys
 
-        if | cmp? y x -> insert [y : xs]  hy x
+        if | cmp? x y -> insert [y : xs]  hy x
            |          -> ys ++ [x : xs]
 
     helper xs [] <- xs

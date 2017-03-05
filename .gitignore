@@ -8,3 +8,7 @@
 *.o
 
 sorts/Test
+
+sorts/build.scm
+
+sorts/gen.scm
