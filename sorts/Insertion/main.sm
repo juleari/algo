@@ -15,4 +15,4 @@ insertion-sort xs cmp? <-
 
     helper [] xs
 
-insertion-sort [1 3 2] \ x y -> x < y
+main xs cmp? <- insertion-sort xs cmp?
